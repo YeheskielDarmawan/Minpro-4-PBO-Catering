@@ -1,4 +1,4 @@
-# Minpro-4-PBO-ManajemenCatering
+# Minpro-4-PBO-Catering
 
 Aplikasi Manajemen Catering ini merupakan pengembangan kelanjutan dari Mini Project 3 yang telah dimigrasikan dari penyimpanan memori sementara (*ArrayList*) ke penyimpanan database terkonfigurasi permanen (*Data Persistence*) menggunakan **MySQL Database**, **JDBC (Java Database Connectivity)** berbasis **Prepared Statement**, serta arsitektur pola desain **DAO (Data Access Object)** dan **MVC (Model-View-Controller)**.
 
