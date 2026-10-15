@@ -9,7 +9,7 @@ Aplikasi konsol interaktif ini dirancang untuk mengelola sistem data menu cateri
 
 ---
 
-## 📁 Penjelasan Struktur Package
+##  Penjelasan Struktur Package
 Proyek disusun terstruktur menggunakan arsitektur MVC yang dipadukan dengan layer DAO dan konfigurasi database:
 - `config`: Berisi kelas `DatabaseConfig.java` yang bertanggung jawab mengelola dan menyediakan objek koneksi JDBC (`Connection`) ke server MySQL.
 - `dao`: Berisi kelas `MenuDAO.java` yang mengisolasi seluruh logika eksekusi perintah SQL (Prepared Statement) ke database.
@@ -20,7 +20,7 @@ Proyek disusun terstruktur menggunakan arsitektur MVC yang dipadukan dengan laye
 
 ---
 
-## 🔄 Penjelasan Detail Alur Program
+##  Penjelasan Detail Alur Program
 1. **Inisialisasi Koneksi Database**: Saat program dijalankan dari `Main.java`, aplikasi menyiapkan driver JDBC MySQL (`com.mysql.cj.jdbc.Driver`) yang telah dikonfigurasi pada `pom.xml`.
 2. **Read Data Awal (Membaca dari Database)**:
    Pengguna memilih menu `1` (Lihat Semua Menu). `CateringView` memanggil controller yang meneruskan kueri ke `MenuDAO.getAll()`. Method ini mengeksekusi instruksi SQL `SELECT * FROM menu` dan membaca *dummy data* awal yang dimasukkan dari file `database_catering.sql`.
@@ -35,7 +35,7 @@ Proyek disusun terstruktur menggunakan arsitektur MVC yang dipadukan dengan laye
 
 ---
 
-## 🛡️ Penjelasan Penerapan Encapsulation dan Inheritance
+##  Penjelasan Penerapan Encapsulation dan Inheritance
 - **Encapsulation**:
   Setiap variabel/atribut pada kelas dasar (`id`, `nama`, `harga`) dideklarasikan dengan variabel `private`. Akses baca dan ubah nilai atribut dilakukan secara aman menggunakan metode *getter* dan *setter* (`getId()`, `setNama()`, `setHarga()`).
 - **Inheritance**:
@@ -44,7 +44,7 @@ Proyek disusun terstruktur menggunakan arsitektur MVC yang dipadukan dengan laye
 
 ---
 
-## ⚡ Penjelasan Penerapan Polymorphism dan Abstraction
+##  Penjelasan Penerapan Polymorphism dan Abstraction
 - **Abstraction**:
   Diterapkan menggunakan `abstract class MenuCatering` yang tidak dapat diinstansiasi secara langsung, serta memiliki *abstract method* `tampilDetail()` yang wajib diimplementasikan ulang oleh masing-masing kelas anak.
 - **Polymorphism**:
@@ -53,7 +53,7 @@ Proyek disusun terstruktur menggunakan arsitektur MVC yang dipadukan dengan laye
 
 ---
 
-## 🔌 Penjelasan Penerapan JDBC (Java Database Connectivity)
+##  Penjelasan Penerapan JDBC (Java Database Connectivity)
 Penerapan JDBC pada proyek ini difokuskan di dalam package `config` dan `dao`:
 1. **Database Driver & Connection**: Kelas `DatabaseConfig` menggunakan method `DriverManager.getConnection(URL, USER, PASSWORD)` untuk membuka saluran komunikasi aktif dengan server MySQL pada basis data `db_catering`.
 2. **Prepared Statement**: Setiap operasi *write/manipulation* data (INSERT, UPDATE, DELETE) pada kelas `MenuDAO` menggunakan objek `PreparedStatement`. Parameter kueri diikat menggunakan placeholder tanda tanya (`?`) seperti `ps.setString()`, `ps.setDouble()`, dan `ps.setInt()`. Penggunaan `PreparedStatement` ini menjamin keamanan dari serangan *SQL Injection* serta meningkatkan efisiensi eksekusi kueri.
